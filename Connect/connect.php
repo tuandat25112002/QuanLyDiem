@@ -21,12 +21,12 @@ class Database_ql_diem
 				mysqli_set_charset(self::$conn,'utf8');
 			}
 		}
-	public function Execute($sql)
+	public static function Execute($sql)
 		{
 			$retuln = self::$conn->query($sql);
 			return $retuln;
 		}	
-	public function Getdata($sql)
+	public static function Getdata($sql)
 	{
 		$retuln = self::Execute($sql);
 		$arr = array();
@@ -42,7 +42,7 @@ class Database_ql_diem
 		return $arr;
 	}
 	// xử lý Điểm
-	public function H_Diem($diem)
+	public static function H_Diem($diem)
 	{
 		if ($diem >= 8.5) {
 			$d = 4;
@@ -62,7 +62,7 @@ class Database_ql_diem
 		}
 		return $d;
 	}
-	public function Diem_C($diem)
+	public static function Diem_C($diem)
 	{
 		if ($diem >= 8.5) {
 			$d = "A";
@@ -82,7 +82,7 @@ class Database_ql_diem
 		}
 		return $d;
 	}
-	public function XL($diem)
+	public static function XL($diem)
 	{
 		if ($diem >= 3.6) {
 			$xl = "Xuất sắc";
